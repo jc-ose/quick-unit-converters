@@ -7,7 +7,7 @@ This repository contains several utilities for flexible unit conversion in matla
 The current functions are:
  - cvlength - Length unit conversions (mm, in, m, etc.)
  - cvangle - Angle unit conversions (rad, deg, arcseconds, etc.)
- - cvspace - Digital unit conversions (bytes, kilobytes, bits, etc.)
+ - cvdigital - Digital storage unit conversions (bytes, kilobytes, bits, etc.)
 
 All functions have three inputs:
 

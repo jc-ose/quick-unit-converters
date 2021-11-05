@@ -1,10 +1,20 @@
 function valOut = cvangle(valIn,angIn,angOut)
 % Quickly convert angle units
-% Usage valOut = cvangle(valIn,angIn,angOut)
+% Usage: valOut = cvangle(valIn,angIn,angOut)
+%
+% --- Options ---
+%     r, rad, radian
+%     d, deg, degree
+%     min, arcmin
+%     sec, arcsec
+%     mr, mrad, milliradian
+%     ur, microrad, microradian
+%     nr, nanorad, nanoradians
+
 arguments
     valIn {mustBeNumeric}
-    angIn {mustBeText}
-    angOut {mustBeText}
+    angIn char
+    angOut char
 end
 valOut = valIn.*getScaleFactor(angIn)./getScaleFactor(angOut);
 end
@@ -23,6 +33,8 @@ switch lower(ang)
     case {'mr','mrad','millirad','milliradian','milliradians'}
         sc = 1e-3;
     case {'ur','urad','microrad','microradian','microradians'}
+        sc = 1e-6;
+    case {'nr','nrad','nanorad','nanoradian','nanoradians'}
         sc = 1e-6;
     otherwise
         error('%s is not a supported unit',ang)

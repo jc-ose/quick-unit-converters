@@ -1,10 +1,21 @@
-function valOut = cvspace(valIn,lenthIn,lenthOut)
-% Quickly convert length units
-% Usage valOut = cvangle(valIn,angIn,angOut)
+function valOut = cvdigital(valIn,lenthIn,lenthOut)
+% Quickly convert digital storage units
+% Usage: valOut = cvdigital(valIn,angIn,angOut)
+%
+% --- Options ---
+%     b, byte
+%     kb, kilobyte
+%     mb, megabyte
+%     tb, terabyte
+%     bi, bit
+%     kbi, kilobit
+%     mbi, megabit
+%     gbi, gigabit
+
 arguments
     valIn {mustBeNumeric}
-    lenthIn {mustBeText}
-    lenthOut {mustBeText}
+    lenthIn char
+    lenthOut char
 end
 valOut = valIn.*getScaleFactor(lenthIn)./getScaleFactor(lenthOut);
 end

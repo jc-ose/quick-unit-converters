@@ -1,10 +1,33 @@
 function valOut = cvlength(valIn,lenthIn,lenthOut)
 % Quickly convert length units
-% Usage valOut = cvangle(valIn,angIn,angOut)
+% Usage: valOut = cvlength(valIn,angIn,angOut)
+%
+% --- Options ---
+% -- Metric -
+%     m,  meter
+%     cm, centimeter
+%     mm, millimeter
+%     um, micrometer, micron
+%     pm, picometer
+%     fm, femtometer
+%     km, kilometer
+%     a, angstrom
+% -- Imperial -
+%     in, inch
+%     ft, foot
+%     yd, yard
+%     mi, mile
+%     mil (thousandths of an inch)
+% -- Other - 
+%     au, astrounit (astronomical units)
+%     nmi (nautical miles)
+%     ly, lightyear
+%     pcs, parsec
+
 arguments
     valIn {mustBeNumeric}
-    lenthIn {mustBeText}
-    lenthOut {mustBeText}
+    lenthIn char
+    lenthOut char
 end
 valOut = valIn.*getScaleFactor(lenthIn)./getScaleFactor(lenthOut);
 end
