@@ -36,43 +36,43 @@ function sc = getScaleFactor(len)
 % Base unit = meters.
 switch lower(len)
     % Metric
-    case {'m','meter','meters'}
+    case {'m','meter'}
         sc = 1;
-    case {'cm','centimeter','centimeters'}
+    case {'cm','centimeter'}
         sc = 1e-2;
-    case {'mm','millimeter','millimeters'}
+    case {'mm','millimeter'}
         sc = 1e-3;
-    case {'um','micrometer','micrometers','micron','microns'}
+    case {'um','micrometer','micron'}
         sc = 1e-6;
-    case {'nm','nanometer','nanometers'}    
+    case {'nm','nanometer'}    
         sc = 1e-9;
-    case {'pm','picometer','picometers'}
+    case {'pm','picometer'}
         sc = 1e-12;
-    case {'fm','femtometer','femtometers'}    
+    case {'fm','femtometer'}    
         sc = 1e-16;
-    case {'km','kilometer','kilometers'}
+    case {'km','kilometer'}
         sc = 1e3;
-    case {'a','angstrom','angstroms'}
+    case {'a','angstrom'}
         sc = 1e10;
     % Imperial
-    case {'in','inch','inches'}
+    case {'in','inch'}
         sc = 2.54e-2;
     case {'ft','foot','feet'}
-        sc = 2.54e-2*12;
-    case {'yd','yard','yards'}
-        sc = 2.54e-2*36;
-    case {'mi','mile','miles'}
-        sc = 2.54e-2*63360;
-    case {'mil','mils'}
+        sc = 0.3048;
+    case {'yd','yard'}
+        sc = 0.9144;
+    case {'mi','mile'}
+        sc = 1609.344;
+    case 'mil'
         sc = 2.54e-5;
     % Other
     case {'au','astrounit'}
         sc = 149597870700;
     case 'nmi' %nautical miles
         sc = 1852;
-    case {'ly','lightyear','lightyears'}
+    case {'ly','lightyear'}
         sc = 9.4607e15;
-    case {'pcs','parsec','parsecs'}
+    case {'pcs','parsec'}
         sc = 3.0857e16;
     otherwise
         if contains(len,'wv') % support for waves (examples wv1.0um | wv632.8nm | wv0.55microns)

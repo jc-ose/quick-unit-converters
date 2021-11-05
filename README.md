@@ -5,9 +5,10 @@ Quick unit conversion utilities for matlab
 This repository contains several utilities for flexible unit conversion in matlab. 
 
 The current functions are:
- - cvlength - Length unit conversions (mm, in, m, etc.)
- - cvangle - Angle unit conversions (rad, deg, arcseconds, etc.)
+ - cvlength  - Length unit conversions (mm, in, m, etc.)
+ - cvangle   - Angle unit conversions (rad, deg, arcseconds, etc.)
  - cvdigital - Digital storage unit conversions (bytes, kilobytes, bits, etc.)
+ - cvarea    - Area unit conversions (sqm, sqft, acre, etc.)
 
 All functions have three inputs:
 

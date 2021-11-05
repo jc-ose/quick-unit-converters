@@ -24,23 +24,23 @@ function sc = getScaleFactor(len)
 % Base unit = meters.
 switch lower(len)
     % Metric
-    case {'b','byte','bytes'}
+    case {'b','byte'}
         sc = 1;
-    case {'kb','kilobyte','kilobytes'}
+    case {'kb','kilobyte'}
         sc = 1024;
-    case {'mb','megabyte','megabytes'}
+    case {'mb','megabyte'}
         sc = 1048576;
-    case {'gb','gigabyte','gigabytes'}
+    case {'gb','gigabyte'}
         sc = 1073741824;
-    case {'tb','terabyte','terabytes'}
+    case {'tb','terabyte'}
         sc = 1099511627776;
-    case {'bi','bit','bits'}
+    case {'bi','bit'}
         sc = 8^-1;
-    case {'kbi','kilobit','kilobits'}
+    case {'kbi','kilobit'}
         sc = 128;
-    case {'mbi','megabit','megabits'}
+    case {'mbi','megabit'}
         sc = 131072;
-    case {'gbi','gigabit','gigabits'}
+    case {'gbi','gigabit'}
         sc = 134217728;
     otherwise
         error('%s is not a supported unit',len)
