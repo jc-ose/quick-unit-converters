@@ -1,6 +1,6 @@
-function valOut = cvlength(valIn,lenthIn,lenthOut)
+function valOut = cvlength(valIn,unitIn,unitOut)
 % Quickly convert length units
-% Usage: valOut = cvlength(valIn,angIn,angOut)
+% Usage: valOut = cvlength(valIn,unitIn,unitOut)
 %
 % --- Options ---
 % -- Metric -
@@ -26,10 +26,14 @@ function valOut = cvlength(valIn,lenthIn,lenthOut)
 
 arguments
     valIn {mustBeNumeric}
-    lenthIn char
-    lenthOut char
+    unitIn char
+    unitOut char
 end
-valOut = valIn.*getScaleFactor(lenthIn)./getScaleFactor(lenthOut);
+if strcmpi(unitIn,unitOut)
+    valOut = valIn;
+    return;
+end
+valOut = valIn.*getScaleFactor(unitIn)./getScaleFactor(unitOut);
 end
 
 function sc = getScaleFactor(len)

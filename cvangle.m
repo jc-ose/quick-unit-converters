@@ -1,6 +1,6 @@
-function valOut = cvangle(valIn,angIn,angOut)
+function valOut = cvangle(valIn,unitIn,unitOut)
 % Quickly convert angle units
-% Usage: valOut = cvangle(valIn,angIn,angOut)
+% Usage: valOut = cvangle(valIn,unitIn,unitOut)
 %
 % --- Options ---
 %     r, rad, radian
@@ -13,10 +13,10 @@ function valOut = cvangle(valIn,angIn,angOut)
 
 arguments
     valIn {mustBeNumeric}
-    angIn char
-    angOut char
+    unitIn char
+    unitOut char
 end
-valOut = valIn.*getScaleFactor(angIn)./getScaleFactor(angOut);
+valOut = valIn.*getScaleFactor(unitIn)./getScaleFactor(unitOut);
 end
 
 function sc = getScaleFactor(ang)

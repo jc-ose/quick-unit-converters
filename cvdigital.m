@@ -1,6 +1,6 @@
-function valOut = cvdigital(valIn,lenthIn,lenthOut)
+function valOut = cvdigital(valIn,unitIn,unitOut)
 % Quickly convert digital storage units
-% Usage: valOut = cvdigital(valIn,angIn,angOut)
+% Usage: valOut = cvdigital(valIn,unitIn,unitOut)
 %
 % --- Options ---
 %     b, byte
@@ -14,10 +14,14 @@ function valOut = cvdigital(valIn,lenthIn,lenthOut)
 
 arguments
     valIn {mustBeNumeric}
-    lenthIn char
-    lenthOut char
+    unitIn char
+    unitOut char
 end
-valOut = valIn.*getScaleFactor(lenthIn)./getScaleFactor(lenthOut);
+if strcmpi(unitIn,unitOut)
+    valOut = valIn;
+    return;
+end
+valOut = valIn.*getScaleFactor(unitIn)./getScaleFactor(unitOut);
 end
 
 function sc = getScaleFactor(len)

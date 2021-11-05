@@ -1,6 +1,6 @@
-function valOut = cvarea(valIn,lenthIn,lenthOut)
+function valOut = cvarea(valIn,unitIn,unitOut)
 % Quickly convert area units
-% Usage: valOut = cvarea(valIn,angIn,angOut)
+% Usage: valOut = cvarea(valIn,unitIn,unitOut)
 %
 % --- Options ---
 % -- Metric -
@@ -23,10 +23,14 @@ function valOut = cvarea(valIn,lenthIn,lenthOut)
 
 arguments
     valIn {mustBeNumeric}
-    lenthIn char
-    lenthOut char
+    unitIn char
+    unitOut char
 end
-valOut = valIn.*getScaleFactor(lenthIn)./getScaleFactor(lenthOut);
+if strcmpi(unitIn,unitOut)
+    valOut = valIn;
+    return;
+end
+valOut = valIn.*getScaleFactor(unitIn)./getScaleFactor(unitOut);
 end
 
 function sc = getScaleFactor(len)
